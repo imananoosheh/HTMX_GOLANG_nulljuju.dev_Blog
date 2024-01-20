@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://unpkg.com/htmx.org@1.9.10"
+			integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<title>CMS | Posts</title>
+	</head>
+	<body>
+		<div>
+			<form
+				hx-post="/add-new-post"
+				hx-target="#all-posts"
+				hx-swap="beforeend"
+			>
+				<input
+					type="text"
+					name="post-title"
+					placeholder="Post title ..."
+				/>
+				<input
+					type="text"
+					name="post-body"
+					placeholder="Post body ..."
+				/>
+				<button type="submit">Post the Post!</button>
+			</form>
+		</div>
+		<div id="all-posts">
+			{{range .postsFetched}}
+			<div class="post">
+				<span>User ID: {{.UserID}} ∙ Post ID: {{.ID}}</span>
+				<h2>Title: {{.Title}}</h2>
+				<h3>Body: {{.Body}}</h3>
+			</div>
+			{{end}}
+		</div>
+	</body>
+</html>
