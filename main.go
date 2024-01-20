@@ -43,6 +43,7 @@ func fetchPosts() PostType {
 }
 
 func main() {
+	component := 
 	dashboardHandler := func(w http.ResponseWriter, r *http.Request) {
 		dashTemplate := template.Must(template.ParseFiles("dashboard.html"))
 		postsFetched := fetchPosts()
