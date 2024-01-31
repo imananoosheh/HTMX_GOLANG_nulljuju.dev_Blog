@@ -12,32 +12,13 @@
 		<title>CMS | Posts</title>
 	</head>
 	<body>
-		<div>
-			<form
-				hx-post="/add-new-post"
-				hx-target="#all-posts"
-				hx-swap="beforeend"
-			>
-				<input
-					type="text"
-					name="post-title"
-					placeholder="Post title ..."
-				/>
-				<input
-					type="text"
-					name="post-body"
-					placeholder="Post body ..."
-				/>
-				<button type="submit">Post the Post!</button>
-			</form>
-		</div>
 		<div id="all-posts">
 			{{range .postsFetched}}
-			<div class="post">
+			<section class="post">
 				<span>User ID: {{.UserID}} ∙ Post ID: {{.ID}}</span>
 				<h2>Title: {{.Title}}</h2>
-				<h3>Body: {{.Body}}</h3>
-			</div>
+				<p>Body: {{.Body}}</p>
+			</section>
 			{{end}}
 		</div>
 	</body>
